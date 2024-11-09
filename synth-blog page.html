@@ -1,0 +1,387 @@
+<html><head><base href="." >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synth Wellness - Latest Peptide Research & News</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<style>
+:root {
+  --primary: #FF0066;
+  --secondary: #00C9FF;
+  --dark: #1A1A1A;
+  --light: #FFFFFF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f7;
+  color: var(--dark);
+}
+
+nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-links a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.nav-links a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.swiper {
+  width: 100%;
+  height: 600px;
+  margin-top: 80px;
+}
+
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  text-align: left;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trending-section {
+  background: white;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--dark);
+}
+
+.tag {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.news-card {
+  padding: 0;
+  overflow: hidden;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.news-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-card-image {
+  transform: scale(1.05);
+}
+
+.news-card-content {
+  padding: 2rem;
+}
+
+.highlight {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="news.html">News</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="slide-content" style="background-image: url('https://source.unsplash.com/1600x900/?biotech,laboratory,future')">
+        <div class="slide-text">
+          <span class="tag">Breaking News</span>
+          <h2>Novel Peptide Therapy Shows Promise in Alzheimer's Treatment</h2>
+          <p>Groundbreaking research reveals potential breakthrough in neurodegenerative disease treatment</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="slide-content" style="background-image: url('https://source.unsplash.com/1600x900/?science,ai,future')">
+        <div class="slide-text">
+          <span class="tag">Research Update</span>
+          <h2>Revolutionary Peptide Delivery System Developed</h2>
+          <p>New technology promises enhanced bioavailability for therapeutic peptides</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="slide-content" style="background-image: url('https://source.unsplash.com/1600x900/?medical,research,technology')">
+        <div class="slide-text">
+          <span class="tag">Clinical Trials</span>
+          <h2>Antimicrobial Peptides Show Promise Against Superbugs</h2>
+          <p>Phase III trials demonstrate exceptional results in fighting antibiotic-resistant bacteria</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="slide-content" style="background-image: url('https://source.unsplash.com/1600x900/?protein,molecular')">
+        <div class="slide-text">
+          <span class="tag">Innovation</span>
+          <h2>Breakthrough in Peptide Synthesis Using Quantum Computing</h2>
+          <p>Quantum algorithms optimize peptide design for targeted drug delivery</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="slide-content" style="background-image: url('https://source.unsplash.com/1600x900/?medicine,future,tech')">
+        <div class="slide-text">
+          <span class="tag">Discovery</span>
+          <h2>Novel Peptide Shows Promise in Regenerative Medicine</h2>
+          <p>Researchers identify peptide sequence promoting tissue regeneration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<section class="trending-section">
+  <h2 class="section-title">Trending in Peptide Research</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?peptide,cancer,laboratory" alt="Laboratory research with advanced peptide technology" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Breakthrough</span>
+        <h3>New Peptide-Based Cancer Therapy Shows 80% Success Rate</h3>
+        <p>Researchers at Stanford University have developed a novel peptide that specifically targets cancer cells...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?peptide,ai,technology" alt="AI technology in peptide research" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Innovation</span>
+        <h3>AI-Designed Peptides Revolution</h3>
+        <p>Machine learning algorithms create new peptide sequences with unprecedented therapeutic potential...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?peptide,synthesis,science" alt="Peptide synthesis in scientific research" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Research</span>
+        <h3>Peptide Synthesis Breakthrough</h3>
+        <p>New method reduces synthesis time by 60% while maintaining high purity levels...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trending-section">
+  <h2 class="section-title">Latest Developments</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?vaccine,laboratory,medical" alt="Development of peptide-based vaccines" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Clinical Research</span>
+        <h3>Peptide-Based Vaccines Show Promise Against Multiple Variants</h3>
+        <p>New research demonstrates broad-spectrum protection against viral mutations...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?ai,computing,research" alt="AI computing in peptide research" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Technology</span>
+        <h3>ML-Powered Peptide Discovery Platform Launched</h3>
+        <p>Revolutionary platform reduces drug discovery timeline by 60%...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?autoimmune,medical,science" alt="Research on peptide therapies for autoimmune conditions" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Therapeutics</span>
+        <h3>Novel Peptide Therapy for Autoimmune Conditions</h3>
+        <p>Breakthrough treatment shows remarkable results in early trials...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trending-section">
+  <h2 class="section-title">Research Highlights</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?brain,neuroscience,laboratory" alt="Research on brain-penetrating peptides" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Neuroscience</span>
+        <h3>Brain-Penetrating Peptides Transform Neurological Treatment</h3>
+        <p>New delivery mechanism shows unprecedented brain tissue penetration...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?immune,system,microscope" alt="Microscopic view of immune system response" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Biotechnology</span>
+        <h3>Synthetic Peptides Mimic Natural Immune Response</h3>
+        <p>Engineered peptides show potential in boosting immune system function...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/800x600/?drug,development,science" alt="Drug development involving peptides" class="news-card-image">
+      <div class="news-card-content">
+        <span class="tag">Drug Development</span>
+        <h3>Peptide-Drug Conjugates Revolution</h3>
+        <p>Novel conjugation technique improves drug targeting efficiency...</p>
+        <button class="cta-button">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  }
+});
+</script>
+</body>
+</html>
